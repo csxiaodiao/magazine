@@ -1,0 +1,40 @@
+<%= render '/shared/admin/head' %>
+
+<%= content_for(:content) do %>
+  <% if account_signed_in? %>
+    <%= render 'shared/admin/navbar/signed' %>
+  <% else %>
+    <%= render 'shared/admin/navbar/unsigned' %>
+  <% end %>
+      <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Flash -->
+    <div class="row">
+    <div class="col-sm-12">
+        <%= render 'shared/admin/flash' %>
+    </div>
+    </div>
+    <section class="content-header">
+      <h1>
+          <% if content_for?(:path_title) %>
+            <%= yield(:path_title) %>
+          <% else %>
+            <%= path_title %>
+          <% end %>
+      </h1>
+      <ol class="breadcrumb">
+        <%=  render_breadcrumbs(tag: :li, separator: ' > ') %>
+      </ol>
+      
+
+    </section>
+
+    <%= yield %>
+  </div>
+
+<% end%>
+
+<%= render '/shared/admin/footer' %>
+
+<%= render template: "layouts/admin/base" %>

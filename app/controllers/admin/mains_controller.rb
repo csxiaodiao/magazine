@@ -1,4 +1,4 @@
-class Admin::MainsController < ApplicationController
+class Admin::MainsController < Admin::BaseController
     def home 
     end
     

@@ -1,0 +1,16 @@
+<div class="table-empty text-center">
+  <%= fa_icon("search 5x") %>
+  <h4><%= local_assigns[:text] || "查找不到相关记录" %></h4>
+</div>
+
+
+<%#可以附带block%>
+
+<%#<div class="table-empty text-center">%>
+<%#  <%= fa_icon("search 5x") +|%>
+<%#  <h4>查找不到相关记录</h4>%>
+<%#  <%= yield +|%>
+<%#</div>%>
+<%#<%= render layout: "shared/admin/table_empty" do +|%>
+<%#  <h1>TEST</h1>%>
+<%#<% end +|%>

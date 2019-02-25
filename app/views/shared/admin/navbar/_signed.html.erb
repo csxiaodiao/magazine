@@ -1,0 +1,57 @@
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini">Art</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Art</b></span>
+        </a>
+        
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li><a href="javascript:void(0);"><%= current_account.email %></a></li>
+                <li><%= link_to '安全退出', [:destroy, :account, :session], method: "delete" %></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu" data-widget="tree">
+
+              <li class="<%= is_active(controller_name, ['banners'])%> treeview">
+              
+              <a href="#">
+                <i class="fa fa-picture-o"></i> <span>封面图管理</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              
+              <ul class="treeview-menu">
+
+              <%= active_link_to admin_root_path, wrap_tag: :li do %>
+                <i class="fa fa-circle-o"></i><span> 封面图列表</span>
+              <%end%>
+        
+              </ul>
+            </li>
+
+           </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+

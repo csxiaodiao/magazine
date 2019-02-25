@@ -1,0 +1,9 @@
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'm-t' } ) do |f| %>
+    <div class="form-group">
+      <%= f.input :email, required: true, label: false, autofocus: true, input_html: {class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :password, required: true, label: false, input_html: {class: "form-control"}%>
+    </div>
+      <%= f.button :submit, "登 录", class: "btn btn-primary block full-width m-b" %>
+  <% end %>
