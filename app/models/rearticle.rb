@@ -1,0 +1,2 @@
+class Rearticle < ApplicationRecord
+end

@@ -34,20 +34,25 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" data-widget="tree">
 
-              <li class="<%= is_active(controller_name, ['banners'])%> treeview">
-              
-              <a href="#">
-                <i class="fa fa-picture-o"></i> <span>封面图管理</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              
-              <ul class="treeview-menu">
+            <%= active_link_to admin_root_path, wrap_tag: :li do %>
+              <i class="fa fa-home"></i><span> 首页</span>
+            <%end%>
 
-              <%= active_link_to admin_root_path, wrap_tag: :li do %>
-                <i class="fa fa-circle-o"></i><span> 封面图列表</span>
+              <%= active_link_to admin_articles_path, wrap_tag: :li do %>
+                <i class="fa fa-file-archive-o"></i><span> 文章管理</span>
               <%end%>
-        
-              </ul>
-            </li>
+  
+      
+
+
+           
+
+              <%= active_link_to admin_resources_path, wrap_tag: :li do %>
+                <i class="fa fa-file-zip-o"></i><span> 资源管理</span>
+              <%end%>
+      
+
+            
 
            </ul>
         </section>

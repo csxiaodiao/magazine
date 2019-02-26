@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         get :home
       end
     end
+
+    resources :articles
     resources :resources
   end
 
