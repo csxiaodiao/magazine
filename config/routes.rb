@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     end
 
     resources :articles
+    resources :csv_files, only: %i(index new create destroy) do
+      collection do
+        post :extract
+      end
+    end
     resources :resources
   end
 

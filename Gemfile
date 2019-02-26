@@ -82,6 +82,9 @@ gem 'closure_tree', '~> 7.0'
 gem 'default_value_for', '~> 3.1'
 #跨域
 gem 'rack-cors', require: 'rack/cors'
+#编辑器
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs', :git => 'git@github.com:csxiaodiao/tinymce-rails-langs.git'
 
 
 group :development, :test do

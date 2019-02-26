@@ -21,3 +21,8 @@ zh-CN:
         title: 更新资源
       show:
         title: 资源详细
+    csv_files:
+        index: 
+          title: CSV文档列表
+        new: 
+          title: 上传CSV文档

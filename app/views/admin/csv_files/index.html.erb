@@ -1,0 +1,50 @@
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><%= link_to('添加CSV', new_admin_csv_file_path, class: 'btn btn-sm btn-warning')%></h3>
+            <h3 class="box-title"><%= link_to('批量处理内容', extract_admin_csv_files_path, class: 'btn btn-sm btn-success', method: :post, remote: true)%></h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                <th>名称</th>
+                <th>状态</th>
+                <th>上传时间</th>
+                <th>更新时间</th>
+                <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @csv_files.each do |csv_file| %>
+                    <tr>
+                        <td><%= csv_file.name_identifier %></td>
+                        <td><%= csv_file.status_text %></td>
+                        <td><%= csv_file.created_at.localtime.to_s(:db) %></td>
+                        <td><%= csv_file.updated_at.localtime.to_s(:db) %></td>
+                        <td>
+                            
+                            <%= link_to('删除', admin_csv_file_path(csv_file), class: 'btn btn-sm btn-warning', method: 'delete')%>
+                        </td>
+ 
+                    </tr>
+                    
+                <%end%>
+                
+            </tbody>
+            </table>
+            <%= paginate @csv_files %>
+        </div><!-- /.box-body -->
+        </div><!-- /.box -->
+
+    </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->
+
+
+        
+        
+

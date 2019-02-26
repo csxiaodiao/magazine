@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, @csv_file] do |f| %>
+  <div class="box-body">          
+    <div class="form-group">
+      <%= f.input :name, as: :file %>                  
+    </div>
+  </div> 
+  <div class="box-footer">
+    <%= f.button :submit, class: 'btn btn-warning' %>
+  </div> 
+<% end %>

@@ -1,0 +1,14 @@
+zh-CN:
+  activerecord:
+    models:
+      article: 文档
+    attributes:
+      article:
+        title: 标题
+        content: 正文内容
+        status: 状态
+
+      article/status:
+        pending: 待处理
+        finished: 处理完成
+        fails: 处理失败

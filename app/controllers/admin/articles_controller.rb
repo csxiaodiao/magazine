@@ -1,6 +1,20 @@
 class Admin::ArticlesController < Admin::BaseController
-    def index
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
 
-        
-    end
+
+  def index
+    @articles = Article.page(params[:page])
+  end
+
+  def show
+  end
+
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+
 end

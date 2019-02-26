@@ -1,0 +1,13 @@
+zh-CN:
+  activerecord:
+    models:
+      csv_file: 文档
+    attributes:
+      csv_file:
+        name: 名称
+        status: 状态
+
+      csv_file/status:
+        pending: 待处理
+        finished: 处理完成
+        fails: 处理失败
