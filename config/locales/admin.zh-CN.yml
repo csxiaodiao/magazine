@@ -1,0 +1,23 @@
+zh-CN:
+  admin:
+    mains:
+      home:
+        title: 首页
+    articles:
+      index:
+        title: 文章管理
+      new:
+        title: 创建文章
+      edit:
+        title: 更新文章
+      show:
+        title: 文章详细
+    resources:
+      index:
+        title: 资源管理
+      new:
+        title: 创建资源
+      edit:
+        title: 更新资源
+      show:
+        title: 资源详细
