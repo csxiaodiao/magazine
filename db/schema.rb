@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_105644) do
+ActiveRecord::Schema.define(version: 2019_02_27_143305) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -30,19 +30,21 @@ ActiveRecord::Schema.define(version: 2019_02_26_105644) do
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "resource_id"
     t.string "title"
     t.text "content"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_articles_on_resource_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "articles_id"
+    t.bigint "article_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["articles_id"], name: "index_categories_on_articles_id"
+    t.index ["article_id"], name: "index_categories_on_article_id"
   end
 
   create_table "csv_files", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,21 +54,20 @@ ActiveRecord::Schema.define(version: 2019_02_26_105644) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rearticles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "articles_id"
+  create_table "resources", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.text "contnet"
+    t.text "content"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["articles_id"], name: "index_rearticles_on_articles_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "articles_id"
+    t.bigint "article_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["articles_id"], name: "index_tags_on_articles_id"
+    t.index ["article_id"], name: "index_tags_on_article_id"
   end
 
 end

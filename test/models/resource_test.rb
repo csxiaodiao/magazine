@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RearticleTest < ActiveSupport::TestCase
+class ResourceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

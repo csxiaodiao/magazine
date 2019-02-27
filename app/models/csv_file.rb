@@ -14,9 +14,9 @@ class CsvFile < ApplicationRecord
 
     def self.statuses
         STATUS_HASH.with_indifferent_access
-      end
+    end
     
-      aasm :status, column: :status, enum: true do
+    aasm :status, column: :status, enum: true do
         state :pending, initial: true
         state :finished
         state :fails
@@ -28,8 +28,7 @@ class CsvFile < ApplicationRecord
         event :failure_extracted  do
             transitions from: :pending, to: :fails
         end
-    
-      end
+    end
 
 
 

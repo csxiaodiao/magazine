@@ -1,1 +1,72 @@
-index
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><%= link_to('添加文章', new_admin_resource_path, class: 'btn btn-sm btn-warning')%></h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                <th>标题</th>
+                <th>状态</th>
+                <th>上传时间</th>
+
+                <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @resources.each do |resource| %>
+                    <tr>
+                        <td><%= resource.title %></td>
+       
+                        <td id="status_<%= resource.id%>"><%= resource.status_text %></td>
+                        <td><%= resource.created_at.localtime.to_s(:db) %></td>
+                        <td>
+                            <%= link_to('重写', reedit_admin_resource_path(resource), class: 'reedit_content btn btn-sm btn-warning', data: {id: resource.id},  method: 'post', remote: true) %>
+                                 
+              
+                            <%= link_to('修改', edit_admin_resource_path(resource), class: 'btn btn-sm btn-warning', )%>
+                            <%= link_to('删除', admin_resource_path(resource), class: 'btn btn-sm btn-warning', method: 'delete')%>
+                        </td>
+ 
+                    </tr>
+                    
+                <%end%>
+                
+            </tbody>
+            </table>
+            <%= paginate @resources, class: "pagination pagination-sm no-margin" %>
+        </div><!-- /.box-body -->
+        </div><!-- /.box -->
+
+    </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->
+
+
+<script>
+$('.reedit_content').on('ajax:beforeSend', function() {
+  $(this).html('<i class="fa fa-refresh fa-spin"></i> 处理中')
+});
+
+$('.reedit_content').on('ajax:success', function(event) {
+    [data, status, xhr] = event.detail
+    
+    id = $(this).data('id')
+    $('#status_'+ id).html(data.status)
+});
+
+
+
+$('.reedit_content').on('ajax:complete', function(ex,e) {
+    $(this).html('重写')
+});
+</script>
+
+
+        
+        
+

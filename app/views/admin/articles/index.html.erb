@@ -11,7 +11,6 @@
             <thead>
                 <tr>
                 <th>标题</th>
-                <th>正文内容</th>
                 <th>状态</th>
                 <th>上传时间</th>
 
@@ -22,12 +21,13 @@
                 <% @articles.each do |article| %>
                     <tr>
                         <td><%= article.title %></td>
-                        <td><%= article.content %></td>
-
-                        <td><%= article.status_text %></td>
+       
+                        <td id="status_<%= article.id%>"><%= article.status_text %></td>
                         <td><%= article.created_at.localtime.to_s(:db) %></td>
                         <td>
-                            <%= link_to('详细', admin_article_path(article), class: 'btn btn-sm btn-warning')%>
+                            <%= link_to('查看', admin_article_path(article), class: 'btn btn-sm btn-warning', data: {id: article.id}) %>
+                                 
+              
                             <%= link_to('修改', edit_admin_article_path(article), class: 'btn btn-sm btn-warning', )%>
                             <%= link_to('删除', admin_article_path(article), class: 'btn btn-sm btn-warning', method: 'delete')%>
                         </td>
@@ -38,13 +38,33 @@
                 
             </tbody>
             </table>
-            <%= paginate @articles %>
+            <%= paginate @articles, class: "pagination pagination-sm no-margin" %>
         </div><!-- /.box-body -->
         </div><!-- /.box -->
 
     </div><!-- /.col -->
     </div><!-- /.row -->
 </section><!-- /.content -->
+
+
+<script>
+$('.reedit_content').on('ajax:beforeSend', function() {
+  $(this).html('<i class="fa fa-refresh fa-spin"></i> 处理中')
+});
+
+$('.reedit_content').on('ajax:success', function(event) {
+    [data, status, xhr] = event.detail
+    
+    id = $(this).data('id')
+    $('#status_'+ id).html(data.status)
+});
+
+
+
+$('.reedit_content').on('ajax:complete', function(ex,e) {
+    $(this).html('重写')
+});
+</script>
 
 
         

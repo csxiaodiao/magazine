@@ -2,7 +2,7 @@ module CsvFileExtractAble
   extend ActiveSupport::Concern
     
   module ClassMethods
-    def extract_content_to_articles
+    def extract_content_to_resources
 
       records = with_status(:pending)
       
@@ -12,11 +12,11 @@ module CsvFileExtractAble
         csv = CSV.parse(csv_text, :headers => true)
 
         contents = csv.map do |row|
-            Article.new(title: row[0], content: row[1])
+          Resource.new(title: row[0], content: row[1])
         end 
 
         if contents.size > 0
-          result = Article.import contents
+          result = Resource.import contents
           
           if result.failed_instances.present?
             record.failure_extracted!

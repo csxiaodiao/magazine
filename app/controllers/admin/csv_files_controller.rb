@@ -31,7 +31,7 @@ class Admin::CsvFilesController < Admin::BaseController
     end
 
     def extract
-        render json: CsvFile.extract_content_to_articles
+        render json: CsvFile.extract_content_to_resources
     end
 
     private
