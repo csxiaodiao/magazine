@@ -9,11 +9,11 @@ zh-CN:
         status: 状态
         six_status: 网站
         wp_status: 小程序
+        description: 描述
+        keywords: 关键字
+        seo_title: SEO标题
+        category_id: 栏目
 
-      article/status:
-        pending: 待处理
-        finished: 处理完成
-        fails: 处理失败
       article/push_status:
         pushed: 已推送
         waiting: 未推送

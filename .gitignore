@@ -28,3 +28,4 @@
 .env
 /config/database.yml
 /public/uploads/*
+/lib/categories.yml

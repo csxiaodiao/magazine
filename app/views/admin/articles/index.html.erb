@@ -12,19 +12,23 @@
                 <tr>
                 <th>ID</th>
                 <th>标题</th>
-                <th>状态</th>
+                <th>网站</th>
+                <th>小程序</th>
                 <th>上传时间</th>
 
                 <th>操作</th>
                 </tr>
             </thead>
+
             <tbody>
                 <% @articles.each do |article| %>
                     <tr>
                         <td><%= article.id %></td>
                         <td><%= article.title %></td>
        
-                        <td id="status_<%= article.id%>"><%= article.status_text %></td>
+                        <td id="six_status_<%= article.id%>"><%= article.six_status_text %></td>
+                        <td id="wp_status_<%= article.id%>"><%= article.wp_status_text %></td>
+ 
                         <td><%= article.created_at.localtime.to_s(:db) %></td>
                         <td>
                             <%= link_to('查看', admin_article_path(article), class: 'btn btn-sm btn-warning', data: {id: article.id}) %>

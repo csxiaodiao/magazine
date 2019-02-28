@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_112323) do
+ActiveRecord::Schema.define(version: 2019_02_28_124954) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_02_28_112323) do
     t.string "seo_title"
     t.string "keywords"
     t.string "description"
+    t.integer "six_category_id"
+    t.integer "wp_category_id"
     t.index ["resource_id"], name: "index_articles_on_resource_id"
   end
 
