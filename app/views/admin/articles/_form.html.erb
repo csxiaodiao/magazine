@@ -7,10 +7,11 @@
       <div class="form-group">
         <%= f.text_area :content, class: "tinymce form-control", rows: 40, cols: 120 %>
       </div>
+      <div class="form-group">
+        <%= f.input :status,  as: :select,  collection: Article.status.values.map { |v| [v.text, v.value] }, selected: @article.status_value, input_html: {class: "form-control"} %>
+      </div>
   </div>
-  <div class="form-group">
-  <%= f.input :status,  as: :select,  collection: Article.status.values.map { |v| [v.text, v.value] }, selected: @article.status_value, input_html: {class: "form-control"} %>
-  </div>
+
   
   <div class="box-footer">
     <%= f.button :submit, class: 'btn btn-warning' %>

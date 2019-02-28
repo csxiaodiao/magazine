@@ -7,8 +7,13 @@ zh-CN:
         title: 标题
         content: 正文内容
         status: 状态
+        six_status: 网站
+        wp_status: 小程序
 
       article/status:
         pending: 待处理
         finished: 处理完成
         fails: 处理失败
+      article/push_status:
+        pushed: 已推送
+        waiting: 未推送

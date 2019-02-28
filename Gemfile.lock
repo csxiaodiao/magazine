@@ -1,8 +1,15 @@
 GIT
   remote: git@github.com:csxiaodiao/cat_ai.git
-  revision: 49233e11d9d7ee638bf988c37fb7861c95e13529
+  revision: fb3e2e1f6c5ceda4e4e83b400de10ae250e7ce30
   specs:
     cat_ai (0.1.0)
+      rest-client
+
+GIT
+  remote: git@github.com:csxiaodiao/six_api.git
+  revision: 6421656810d76c6cd62bba5096481de795340418
+  specs:
+    six_api (0.1.0)
       rest-client
 
 GIT
@@ -283,6 +290,9 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmmseg-cpp-new (0.3.1)
+    ruby-pinyin (0.5.0)
+      rmmseg-cpp-new (~> 0.3.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.3)
@@ -402,10 +412,12 @@ DEPENDENCIES
   rails-controller-testing
   ransack (~> 2.1)
   record_tag_helper (~> 1.0)
+  ruby-pinyin (~> 0.5.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-matchers (~> 3.1)
   simple_form (~> 4.0.1)
+  six_api!
   spring
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails

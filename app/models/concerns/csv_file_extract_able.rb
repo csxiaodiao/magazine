@@ -8,10 +8,11 @@ module CsvFileExtractAble
       
       records.each do |record|
         csv_path = record.name.current_path
+        
         csv_text = File.read(csv_path)
         csv = CSV.parse(csv_text, :headers => true)
 
-        contents = csv.map do |row|
+        contents = csv.map do |row|  
           Resource.new(title: row[0], content: row[1])
         end 
 

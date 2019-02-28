@@ -20,12 +20,36 @@
 
                     <tr>
                         <th style="width: 15%"><%= t(@article.class.human_attribute_name(:content))%></th>
-                        <td><%= @article.content %></td>   
+                        <td><%= raw @article.content %></td>   
                     </tr>
    
                     <tr>
                         <th style="width: 15%"><%= t(@article.class.human_attribute_name(:status))%></th>
                         <td><%= @article.status_text %></td>    
+                    </tr> 
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:six_status))%></th>
+                        <td class="six_status">
+                        <%= @article.six_status_text%>
+                        
+                        <% if @article.six_status.waiting? %>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <%= link_to('推送', push_six_admin_article_path(@article), class: 'reedit_content btn btn-sm btn-default', data: {id: @article.id},  method: 'post', remote: true)%>
+                        <%end%>
+                        </td>    
+                    </tr> 
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:wp_status))%></th>
+                        <td class="wp_status">
+                        <%= @article.wp_status_text%>
+                        
+                        <% if @article.wp_status.waiting? %>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <%= link_to('推送', push_wp_admin_article_path(@article), class: 'reedit_content btn btn-sm btn-default', data: {id: @article.id},  method: 'post', remote: true)%>
+                        <%end%>
+                        </td>    
                     </tr> 
 
                  <tr>

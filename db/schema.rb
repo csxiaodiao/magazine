@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_143305) do
+ActiveRecord::Schema.define(version: 2019_02_28_112323) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,9 +33,13 @@ ActiveRecord::Schema.define(version: 2019_02_27_143305) do
     t.bigint "resource_id"
     t.string "title"
     t.text "content"
-    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "six_status", default: false
+    t.boolean "wp_status", default: false
+    t.string "seo_title"
+    t.string "keywords"
+    t.string "description"
     t.index ["resource_id"], name: "index_articles_on_resource_id"
   end
 

@@ -31,6 +31,15 @@ class Admin::ResourcesController < Admin::BaseController
     
   end
 
+  def deduplication
+    begin       
+      total_count = Resource.deduplication
+      render json: {msg: 'success', total_count: total_count}
+    rescue => e   
+      render json: {msg: 'fails', info: e.inspect}
+    end
+  end
+
 
 
   private

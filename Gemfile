@@ -61,6 +61,7 @@ gem 'http', '~> 4.0'
 # gem 'aliyun-sms'
 # 文章重写
 gem 'cat_ai', :git => 'git@github.com:csxiaodiao/cat_ai.git'
+gem 'six_api', :git => 'git@github.com:csxiaodiao/six_api.git'
 # 搜索
 gem 'ransack', '~> 2.1'
 # 后台任务
@@ -85,6 +86,8 @@ gem 'rack-cors', require: 'rack/cors'
 #编辑器
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs', :git => 'git@github.com:csxiaodiao/tinymce-rails-langs.git'
+# 拼音
+gem 'ruby-pinyin', '~> 0.5.0'
 
 
 group :development, :test do

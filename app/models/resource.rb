@@ -47,15 +47,10 @@ class Resource < ApplicationRecord
     end
 
     ActiveRecord::Base.transaction do
-      begin
-        logger.info(data)        
+      begin       
         self.create_article!(title: self.title, content: data[:content])
         successful_extracted!
-      rescue => e
-        
-        binding.pry
-        
-        logger.info e.errors_full_messages_text
+      rescue => e        
         failure_extracted!
         raise ActiveRecord::Rollback
       end
@@ -63,6 +58,13 @@ class Resource < ApplicationRecord
 
     self
   end
+
+  def self.deduplication    
+    ids = select("MAX(id) as id, count(*) as count").group(:title).having('count>1').collect(&:id)
+    where(id: ids).destroy_all
+    ids.size
+  end
+  
 
 
 end

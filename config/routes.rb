@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :articles do
       member do
         post :reedit
+        post :push_six
+        post :push_wp
       end
     end
 
@@ -29,6 +31,9 @@ Rails.application.routes.draw do
     resources :resources do
       member do
         post :reedit
+      end
+      collection do
+        post :deduplication
       end
     end
 
