@@ -29,3 +29,4 @@
 /config/database.yml
 /public/uploads/*
 /lib/categories.yml
+db/migrate/media.sql

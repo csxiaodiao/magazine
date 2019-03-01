@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_124954) do
+ActiveRecord::Schema.define(version: 2019_03_01_142322) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -60,12 +60,28 @@ ActiveRecord::Schema.define(version: 2019_02_28_124954) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "media", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "channel_type", comment: "频道类型"
+    t.string "portal_type", comment: "门户类型"
+    t.string "collection_effect", comment: "收录效果"
+    t.string "collection_type", comment: "门户类型"
+    t.string "region", comment: "地区"
+    t.string "real_price"
+    t.string "price"
+    t.string "url"
+    t.string "six_url"
+    t.text "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "resources", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.text "content"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content", limit: 4294967295
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

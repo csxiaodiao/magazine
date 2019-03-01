@@ -17,3 +17,6 @@ devise_for :accounts, controllers: {
   cp -r  ../CPA/app/views/shared/ app/views/
   cp -r  ../CPA/app/views/shared app/views/
 
+
+  mysql -uroot magazine_development < db/migrate/media.sql
+

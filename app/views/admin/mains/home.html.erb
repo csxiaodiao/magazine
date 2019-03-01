@@ -1,1 +1,65 @@
-home
+<section class="content">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-file-archive-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">资源总数 / 重写总数</span>
+              <span class="info-box-number"><%= @resource_count%> / <%= @resource_finished%></span>                          
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-orange"><i class="fa fa fa-file-text-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">文章总数 </span>
+              <span class="info-box-number"><%= @article_count%></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+                <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-rocket"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">WP系统 / 6系统</span>
+              <span class="info-box-number"><%= @article_wp_count%> / <%= @article_six_count%></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-orange"><i class="fa fa-medium"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">媒体总数</span>
+              <span class="info-box-number"><%= @medium_count %></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+
+</section>
+
