@@ -1,5 +1,5 @@
 class Admin::ArticlesController < Admin::BaseController
-  before_action :set_article, only: [:edit, :update, :show, :destroy, :reedit]
+  before_action :set_article, only: [:edit, :update, :show, :destroy, :reedit, :push_art_to_six, :push_art_to_wp]
 
   def index
     @articles = Article.page(params[:page])
@@ -33,6 +33,21 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
 
+  def push_art_to_six
+    begin
+      render json: {msg: 'success'} if @article.push_art_to_six
+    rescue => e        
+      render json: {msg: 'fails', info: e.inspect}
+    end
+
+  end
+
+  def push_art_to_wp
+    sleep 2
+    render json: {msg: 'success'}
+  end
+
+
 
   private
 
@@ -41,7 +56,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :six_category_id, :wp_category_id, :seo_title, :description, :keywords)
   end
 
 

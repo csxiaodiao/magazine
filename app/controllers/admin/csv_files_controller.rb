@@ -31,7 +31,13 @@ class Admin::CsvFilesController < Admin::BaseController
     end
 
     def extract
-        render json: CsvFile.extract_content_to_resources
+      begin       
+        CsvFile.extract_content_to_resources
+        render json: {msg: 'success'}
+      rescue => e   
+        render json: {msg: 'fails', info: e.inspect}
+      end
+
     end
 
     private

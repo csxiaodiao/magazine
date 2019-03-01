@@ -5,7 +5,7 @@
         <div class="box">
         <div class="box-header">
             <h3 class="box-title"><%= link_to('添加CSV', new_admin_csv_file_path, class: 'btn btn-sm btn-warning')%></h3>
-            <h3 class="box-title"><%= link_to('批量处理内容', extract_admin_csv_files_path, class: 'btn btn-sm btn-success', method: :post, remote: true)%></h3>
+            <h3 class="box-title"><%= link_to('批量处理内容', extract_admin_csv_files_path, class: 'extract btn btn-sm btn-success', method: :post, remote: true)%></h3>
         </div><!-- /.box-header -->
         <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">
@@ -43,6 +43,29 @@
     </div><!-- /.col -->
     </div><!-- /.row -->
 </section><!-- /.content -->
+
+<%= render '/shared/admin/modal' %>
+
+<script>
+$('.extract').on('ajax:beforeSend', function() {
+  $(this).html('<i class="fa fa-refresh fa-spin"></i> 处理中')
+});
+
+$('.extract').on('ajax:success', function(event) {
+    [data, status, xhr] = event.detail
+    if (data.msg == 'success'){
+        text = "处理完毕"
+        $(".modal-body").html(text)
+        $(".modal").modal();
+       
+    }
+});
+
+$('.extract').on('ajax:complete', function(ex,e) {
+    $(this).html('批量处理内容')
+});
+
+</script>
 
 
         

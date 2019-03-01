@@ -12,7 +12,8 @@ zh-CN:
         description: 描述
         keywords: 关键字
         seo_title: SEO标题
-        category_id: 栏目
+        wp_category_id: wp栏目
+        six_category_id: 6栏目
 
       article/push_status:
         pushed: 已推送

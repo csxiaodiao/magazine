@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   extend Enumerize
 
   belongs_to :resource
-  
+
   include ArticleCategoriesAble
 
   
@@ -19,11 +19,40 @@ class Article < ApplicationRecord
 
 
   def push_art_to_six
-    PinYin.abbr(record.name, false, false)
+
+    return true if six_status.pushed?
+
+    response = SixApi::Api.push_six_art(six_art_params)
+    body = JSON.parse response.body
+    if response.code == 200 and body["status"].to_i == 200     
+      self.update!(six_status: PUSH_STATUS_HASH[:pushed])
+    end
+    true
   end
 
   def push_art_to_wp
     PinYin.abbr(record.name, false, false)
   end
+
+
+
+  private
+
+  def six_art_params
+    filename = PinYin.abbr(title, false, false)
+    {
+      title: title,
+      seo_title: seo_title,
+      keywords: keywords,
+      description: description,
+      filename: filename,
+      content: content,
+      cat_id: six_category_id,
+      release: 0,
+    }
+  end
+  
+
+
 
 end

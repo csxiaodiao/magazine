@@ -25,8 +25,7 @@ module CsvFileExtractAble
           record.successful_extracted!
         end
       end
-      
-      
+      true 
     end
   end
     

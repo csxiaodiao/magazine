@@ -19,6 +19,35 @@
                     </tr>
 
                     <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:seo_title))%></th>
+                        <td><%= @article.seo_title %></td>   
+                    </tr>
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:keywords))%></th>
+                        <td><%= @article.keywords.split(',').join(" ") %></td>   
+                    </tr>
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:description))%></th>
+                        <td><%= @article.description %></td>   
+                    </tr>
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:six_category_id))%></th>
+                        <td>
+                        <%= select_tag "six_category_id", options_for_select(Article.categories["six"], @article.six_category_id), class: "form-control", disabled: true, style: "width: 100px" %>
+                        </td>   
+                    </tr>
+
+                    <tr>
+                        <th style="width: 15%"><%= t(@article.class.human_attribute_name(:wp_category_id))%></th>
+                        <td>
+                        <%= select_tag "wp_category_id", options_for_select(Article.categories["wp"], @article.wp_category_id), class: "form-control", disabled: true, style: "width: 100px" %>
+                        </td>   
+                    </tr>
+
+                    <tr>
                         <th style="width: 15%"><%= t(@article.class.human_attribute_name(:content))%></th>
                         <td><%= raw @article.content %></td>   
                     </tr>
@@ -30,7 +59,7 @@
                         
                         <% if @article.six_status.waiting? %>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <%= link_to('推送', push_six_admin_article_path(@article), class: 'reedit_content btn btn-sm btn-default', data: {id: @article.id},  method: 'post', remote: true)%>
+                            <%= link_to('推送', push_art_to_six_admin_article_path(@article), class: 'push_art btn btn-sm btn-default', data: {class: '.six_status'},  method: 'post', remote: true)%>
                         <%end%>
                         </td>    
                     </tr> 
@@ -42,14 +71,14 @@
                         
                         <% if @article.wp_status.waiting? %>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <%= link_to('推送', push_wp_admin_article_path(@article), class: 'reedit_content btn btn-sm btn-default', data: {id: @article.id},  method: 'post', remote: true)%>
+                            <%= link_to('推送', push_art_to_wp_admin_article_path(@article), class: 'push_art btn btn-sm btn-default', data: {class: '.wp_status'},  method: 'post', remote: true)%>
                         <%end%>
                         </td>    
                     </tr> 
 
                  <tr>
                     <td colspan="2" align="center">
-                        <%= link_to('修改', edit_admin_article_path(@article), class: 'btn btn-sm btn-warning', )%>
+                        <%= link_to('修改', edit_admin_article_path(@article), class: 'btn btn-sm btn-warning' )%>
                     </td>
                 </tr>
             
@@ -57,6 +86,7 @@
 
             </tbody>
             </table>
+        
         </div><!-- /.box-body -->
         </div><!-- /.box -->
 
@@ -72,6 +102,29 @@
     </div><!-- /.row -->
 </section><!-- /.content -->
 
+<%= render '/shared/admin/modal' %>
+
+<script>
+$('.push_art').on('ajax:beforeSend', function() {
+  $(this).html('<i class="fa fa-refresh fa-spin"></i> 推送中')
+});
+
+$('.push_art').on('ajax:success', function(event) {
+    [data, status, xhr] = event.detail
+    
+    console.log(data.msg)
+    class_status= $(this).data('class')
+    if (data.msg == 'success'){
+        console.log(class_status)
+        $(class_status).html('已推送')
+        $(".modal-body").html('推送成功')
+        $(".modal").modal();
+       
+    }
+});
+
+
+</script>
 
 
 
