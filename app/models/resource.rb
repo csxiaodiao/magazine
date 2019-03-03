@@ -60,9 +60,18 @@ class Resource < ApplicationRecord
   end
 
   def self.deduplication    
-    ids = select("MAX(id) as id, count(*) as count").group(:title).having('count>1').collect(&:id)
-    where(id: ids).destroy_all
-    ids.size
+    
+    total_count = 0
+
+    while true
+      ids = select("MAX(id) as id, count(*) as count").group(:title).having('count>1').collect(&:id)
+      if ids.size == 0
+        break;
+      end
+      where(id: ids).destroy_all
+      total_count += ids.size
+    end
+    total_count
   end
   
 
