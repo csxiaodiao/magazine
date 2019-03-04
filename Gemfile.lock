@@ -1,15 +1,15 @@
 GIT
+  remote: git@github.com:csxiaodiao/Art_api.git
+  revision: c09a6cbedad580027886d884d3d732f0f60bc484
+  specs:
+    art_api (0.1.0)
+      rest-client
+
+GIT
   remote: git@github.com:csxiaodiao/cat_ai.git
   revision: fb3e2e1f6c5ceda4e4e83b400de10ae250e7ce30
   specs:
     cat_ai (0.1.0)
-      rest-client
-
-GIT
-  remote: git@github.com:csxiaodiao/six_api.git
-  revision: 6421656810d76c6cd62bba5096481de795340418
-  specs:
-    six_api (0.1.0)
       rest-client
 
 GIT
@@ -373,6 +373,7 @@ DEPENDENCIES
   aasm (~> 5.0, >= 5.0.1)
   active_link_to (~> 1.0.5)
   activerecord-import (~> 0.24.0)
+  art_api!
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.3.7)
   breadcrumbs_on_rails (~> 3.0.1)
@@ -417,7 +418,6 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers (~> 3.1)
   simple_form (~> 4.0.1)
-  six_api!
   spring
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails

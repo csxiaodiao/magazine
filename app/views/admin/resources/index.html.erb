@@ -8,6 +8,21 @@
               <%= link_to('添加文章', new_admin_resource_path, class: 'btn btn-sm btn-warning')%>
               <%= link_to('去重标题', deduplication_admin_resources_path, class: 'deduplication btn btn-sm btn-warning', method: 'post', remote: true) %>
             </h3>
+
+        <span class="box-title">
+        <%= search_form_for @q, url: [:admin, :resources],html: {class: "form-inline search"}  do |f| %>
+  
+        <%= f.select :status_eq, Resource.status.values.map { |v| [v.text, v.value] }, {}, {class: 'form-control'}  %>
+        
+        <%= f.search_field :title_cont, class: 'form-control', placeholder: "标题内容" %>
+
+        <%= f.button "检索", class: 'btn btn-warning'%>
+        <% end %>
+        </span>
+
+
+
+
         </div><!-- /.box-header -->
         <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">

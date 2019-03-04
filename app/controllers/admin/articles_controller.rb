@@ -2,7 +2,8 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:edit, :update, :show, :destroy, :reedit, :push_art_to_six, :push_art_to_wp]
 
   def index
-    @articles = Article.page(params[:page])
+    @q = Article.ransack(params[:q])
+    @articles = @q.result.page(params[:page])
   end
 
   def show

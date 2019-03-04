@@ -5,6 +5,22 @@
         <div class="box">
         <div class="box-header">
             <h3 class="box-title"><%= link_to('添加文章', new_admin_article_path, class: 'btn btn-sm btn-warning')%></h3>
+            
+        <span class="box-title">
+        <%= search_form_for @q, url: [:admin, :articles],html: {class: "form-inline search"}  do |f| %>
+        <i class="fa fa-telegram"></i>
+        <%= f.select :six_status_eq, Article.six_status.values.map { |v| [v.text, v.value] }, {}, {class: 'form-control'}  %>
+        <i class="fa fa-wordpress"></i>
+        <%= f.select :wp_status_eq, Article.wp_status.values.map { |v| [v.text, v.value] }, {}, {class: 'form-control'}  %>
+
+        <%= f.search_field :title_cont, class: 'form-control', placeholder: "标题内容" %>
+
+        <%= f.button "检索", class: 'btn btn-warning'%>
+        <% end %>
+        </span>
+
+
+
         </div><!-- /.box-header -->
         <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">
@@ -13,8 +29,8 @@
                 <th>ID</th>
                 <th>资源ID</th>
                 <th>标题</th>
-                <th>网站</th>
-                <th>小程序</th>
+                <th><i class="fa fa-telegram"></i></th>
+                <th><i class="fa fa-wordpress"></i></th>
                 <th>上传时间</th>
 
                 <th>操作</th>

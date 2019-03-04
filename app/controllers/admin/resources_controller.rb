@@ -2,7 +2,8 @@ class Admin::ResourcesController < Admin::BaseController
   before_action :set_resource, only: [:edit, :update, :show, :destroy, :reedit]
 
   def index
-    @resources = Resource.page(params[:page])
+    @q = Resource.ransack(params[:q])
+    @resources = @q.result.page(params[:page])
   end
 
   def show

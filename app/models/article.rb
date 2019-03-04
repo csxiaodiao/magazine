@@ -8,6 +8,7 @@ class Article < ApplicationRecord
 
   include ArticleCategoriesAble
 
+
   
   
 

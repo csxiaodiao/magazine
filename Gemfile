@@ -61,7 +61,7 @@ gem 'http', '~> 4.0'
 # gem 'aliyun-sms'
 # 文章重写
 gem 'cat_ai', :git => 'git@github.com:csxiaodiao/cat_ai.git'
-gem 'six_api', :git => 'git@github.com:csxiaodiao/six_api.git'
+gem 'art_api', :git => 'git@github.com:csxiaodiao/Art_api.git'
 # 搜索
 gem 'ransack', '~> 2.1'
 # 后台任务

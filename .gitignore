@@ -29,4 +29,5 @@
 /config/database.yml
 /public/uploads/*
 /lib/categories.yml
+/lib/six_websites.yml
 db/migrate/media.sql
