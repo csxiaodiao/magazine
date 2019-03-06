@@ -1,0 +1,9 @@
+zh-CN:
+  time:
+    formats:
+      normal: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d %H:%M"
+  date:
+    formats:
+      y_m_d: "%Y年 %m月 %d日"
+      month_day: "%m月%d日"

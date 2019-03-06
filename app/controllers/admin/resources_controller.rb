@@ -20,6 +20,16 @@ class Admin::ResourcesController < Admin::BaseController
     end
   end
 
+
+  def destroy
+    if @resource.destroy
+        flash[:notice] = t(:destroy_success)
+    else
+        flash[:error] = @resource.errors_full_messages_text
+    end
+    redirect_to action: :index
+end
+
   def reedit 
     
     unless @resource.pending?

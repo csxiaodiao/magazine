@@ -67,6 +67,7 @@
     </div><!-- /.row -->
 </section><!-- /.content -->
 
+<%= render '/shared/admin/modal' %>
 
 <script>
 $('.reedit_content').on('ajax:beforeSend', function() {
@@ -78,6 +79,8 @@ $('.reedit_content').on('ajax:success', function(event) {
     
     id = $(this).data('id')
     $('#status_'+ id).html(data.status)
+    $(".modal-body").html(text)
+    $(".modal").modal();
 });
 
 
@@ -90,7 +93,7 @@ $('.reedit_content').on('ajax:complete', function(ex,e) {
 
 
 
-<%= render '/shared/admin/modal' %>
+
 
 <script>
 $('.deduplication').on('ajax:beforeSend', function() {

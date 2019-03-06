@@ -23,7 +23,7 @@ class Article < ApplicationRecord
 
     return true if six_status.pushed?
 
-    response = SixApi::Api.push_six_art(six_art_params)
+    response = ArtApi::Api.push_six_art(six_art_params)
     body = JSON.parse response.body
     if response.code == 200 and body["status"].to_i == 200     
       self.update!(six_status: PUSH_STATUS_HASH[:pushed])

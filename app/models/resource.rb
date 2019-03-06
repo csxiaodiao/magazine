@@ -36,7 +36,7 @@ class Resource < ApplicationRecord
     data = Rails.cache.read(resource_id)
 
     if data.blank?
-      response = CatAi::Api.reedit(mode=2, self.content)
+      response = CatAi::Api.reedit(mode=1, self.content)
       data = {code: response.code, content: response.body}
       Rails.cache.write(resource_id, data, expires_in: 5.minutes)
     end

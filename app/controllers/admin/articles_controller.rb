@@ -20,6 +20,15 @@ class Admin::ArticlesController < Admin::BaseController
     end
   end
 
+  def destroy
+    if @article.destroy
+        flash[:notice] = t(:destroy_success)
+    else
+        flash[:error] = @article.errors_full_messages_text
+    end
+    redirect_to action: :index
+  end
+
   def reedit 
     
     unless @article.pending?

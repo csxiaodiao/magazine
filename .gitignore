@@ -27,6 +27,7 @@
 /config/master.key
 .env
 /config/database.yml
+/config/deploy/*
 /public/uploads/*
 /lib/categories.yml
 /lib/six_websites.yml

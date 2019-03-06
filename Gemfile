@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -83,11 +83,11 @@ gem 'closure_tree', '~> 7.0'
 gem 'default_value_for', '~> 3.1'
 #跨域
 gem 'rack-cors', require: 'rack/cors'
-#编辑器
-gem 'tinymce-rails'
-gem 'tinymce-rails-langs', :git => 'git@github.com:csxiaodiao/tinymce-rails-langs.git'
 # 拼音
 gem 'ruby-pinyin', '~> 0.5.0'
+gem 'rmmseg-cpp-new'
+#编辑器
+gem 'ckeditor', '~> 4.3'
 
 
 group :development, :test do

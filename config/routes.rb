@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :accounts, controllers: {
     sessions: 'admin/sessions'
   }, only: [:sessions]
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
   
     root to: 'mains#home'
+    mount Ckeditor::Engine => '/ckeditor'
 
     resource :main, only: %i() do
       collection do
