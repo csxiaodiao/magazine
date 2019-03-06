@@ -84,8 +84,7 @@ gem 'default_value_for', '~> 3.1'
 #跨域
 gem 'rack-cors', require: 'rack/cors'
 # 拼音
-gem 'ruby-pinyin', '~> 0.5.0'
-gem 'rmmseg-cpp-new'
+# gem 'ruby-pinyin', '~> 0.5.0'
 #编辑器
 gem 'ckeditor', '~> 4.3'
 
