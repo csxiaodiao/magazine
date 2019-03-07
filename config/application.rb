@@ -13,6 +13,7 @@ module Magazine
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
 
+
     config.generators do |g|
       g.template_engine :erb
       g.javascript_engine :js
@@ -22,7 +23,7 @@ module Magazine
       g.helper true
     end
 
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    #   config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
