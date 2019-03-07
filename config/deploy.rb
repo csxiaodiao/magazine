@@ -14,6 +14,7 @@ set :pty, true
 set :linked_files, %w{
     config/database.yml
     config/master.key
+    config/categories.yml
     .env
     .versions.conf
 }
