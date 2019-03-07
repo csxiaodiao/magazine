@@ -52,7 +52,7 @@ gem 'record_tag_helper', '~> 1.0'
 # 枚举支持
 gem 'enumerize', '~> 2.2', '>= 2.2.2'
 # 环境变量
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 # 批量插入
 gem 'activerecord-import', '~> 0.24.0'
 # http 请求
