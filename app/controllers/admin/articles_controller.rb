@@ -6,6 +6,10 @@ class Admin::ArticlesController < Admin::BaseController
     @articles = @q.result.page(params[:page])
   end
 
+  def new
+    @article = Article.new
+  end
+
   def show
   end
 
