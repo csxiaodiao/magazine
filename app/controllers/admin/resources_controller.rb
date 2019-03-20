@@ -9,6 +9,10 @@ class Admin::ResourcesController < Admin::BaseController
   def show
   end
 
+  def new
+    @resource = Resource.new
+  end
+
   def edit
   end
 
