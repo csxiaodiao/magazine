@@ -4,14 +4,10 @@ class Article < ApplicationRecord
   include AASM
   extend Enumerize
 
-  belongs_to :resource
+  # belongs_to :resource
+  belongs_to :account
 
   include ArticleCategoriesAble
-
-
-  
-  
-
 
   PUSH_STATUS_HASH = {pushed: 1, waiting: 0}
 

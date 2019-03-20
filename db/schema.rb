@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_103434) do
+ActiveRecord::Schema.define(version: 2019_03_20_152000) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_103434) do
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "resource_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_103434) do
     t.string "description"
     t.integer "six_category_id"
     t.integer "wp_category_id"
-    t.index ["resource_id"], name: "index_articles_on_resource_id"
+    t.integer "account_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,6 +101,11 @@ ActiveRecord::Schema.define(version: 2019_03_04_103434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_tags_on_article_id"
+  end
+
+  create_table "ziliaos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", limit: 4294967295
+    t.string "title"
   end
 
 end

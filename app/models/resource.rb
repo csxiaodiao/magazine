@@ -4,7 +4,7 @@ class Resource < ApplicationRecord
   include AASM
   extend Enumerize
 
-  has_one :article
+  # has_one :article
 
   STATUS_HASH = {pending: 3, finished: 2, fails: 1}
 

@@ -2,15 +2,25 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:edit, :update, :show, :destroy, :reedit, :push_art_to_six, :push_art_to_wp]
 
   def index
-    @q = Article.ransack(params[:q])
+    @q = current_account.articles.ransack(params[:q])
     @articles = @q.result.page(params[:page])
   end
 
   def new
-    @article = Article.new
+    @article = article_chain.new
   end
 
   def show
+  end
+
+  def create
+    @article = article_chain.new(article_params)
+
+    if @article.save
+      redirect_to admin_article_path(@article)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -33,8 +43,7 @@ class Admin::ArticlesController < Admin::BaseController
     redirect_to action: :index
   end
 
-  def reedit 
-    
+  def reedit
     unless @article.pending?
       render json: {status: @article.status_text}
       return
@@ -45,6 +54,8 @@ class Admin::ArticlesController < Admin::BaseController
     render json: {status: @article.status_text}
     
   end
+
+
 
 
   def push_art_to_six
@@ -65,8 +76,12 @@ class Admin::ArticlesController < Admin::BaseController
 
   private
 
+  def article_chain
+    current_account.articles
+  end
+
   def set_article
-    @article = Article.find(params[:id])
+    @article = article_chain.find(params[:id])
   end
 
   def article_params

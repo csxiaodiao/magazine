@@ -27,7 +27,6 @@
             <thead>
                 <tr>
                 <th>ID</th>
-                <th>资源ID</th>
                 <th>标题</th>
                 <th><i class="fa fa-telegram"></i></th>
                 <th><i class="fa fa-wordpress"></i></th>
@@ -41,7 +40,6 @@
                 <% @articles.each do |article| %>
                     <tr>
                         <td><%= article.id %></td>
-                        <td><%= article.resource_id %></td>
                         <td><%= article.title %></td>
        
                         <td id="six_status_<%= article.id%>"><%= article.six_status_text %></td>
