@@ -48,7 +48,7 @@ class Resource < ApplicationRecord
 
     ActiveRecord::Base.transaction do
       begin       
-        self.create_article!(title: self.title, content: data[:content])
+        Article.create!(title: self.title, content: data[:content])
         successful_extracted!
       rescue => e        
         failure_extracted!

@@ -34,8 +34,10 @@ class Admin::ResourcesController < Admin::BaseController
     redirect_to action: :index
 end
 
-  def reedit 
-    
+  def reedit
+
+    return render json: {status: "未开放"}
+
     unless @resource.pending?
       render json: {status: @resource.status_text}
       return
